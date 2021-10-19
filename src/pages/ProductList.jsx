@@ -32,18 +32,21 @@ const FilterText = styled.span`
 `;
 
 const Select = styled.select`
+  text-transform: capitalize;
   padding: 10px;
   margin-right: 20px;
   ${mobile({ margin: "10px 0px" })}
 `;
-const Option = styled.option``;
+const Option = styled.option`
+  text-transform: capitalize;
+`;
 
 const ProductList = () => {
 
   const location = useLocation();
-  const category = location.pathname.split("/")[2]
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
+  const [category, setCategory] = useState(location.pathname.split("/")[2]);
 
 
   const handleFilters = (e) => {
@@ -54,6 +57,8 @@ const ProductList = () => {
       [name]: value,
     });
   }
+
+  
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -68,7 +73,7 @@ const ProductList = () => {
         <Filter>
           <FilterText>Filter Products:</FilterText>
           <Select name="color" onChange={handleFilters}>
-            <Option disabled>
+            <Option selected disabled hidden>
               Color
             </Option>
             <Option>white</Option>
@@ -79,7 +84,7 @@ const ProductList = () => {
             <Option>green</Option>
           </Select>
           <Select name="size" onChange={handleFilters}>
-            <Option disabled>
+            <Option selected disabled hidden>
               Size
             </Option>
             <Option>s</Option>
@@ -89,11 +94,21 @@ const ProductList = () => {
           </Select>
         </Filter>
         <Filter>
+          <FilterText>Category:</FilterText>
+          <Select onChange={(e) => setCategory(e.target.value)}>
+            <Option value="" selected disabled hidden>{category}</Option>
+            <Option value="sale">Sale</Option>
+            <Option value="casual">Casual</Option>
+            <Option value="business">Business</Option>
+          </Select>
+        </Filter>
+        <Filter>
           <FilterText>Sort Products:</FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value="newest">Popular</Option>
             <Option value="newest">Newest</Option>
-            <Option value="asc">Price (asc)</Option>
-            <Option value="desc">Price (desc)</Option>
+            <Option value="asc">Price (Lowest)</Option>
+            <Option value="desc">Price (Highest)</Option>
           </Select>
         </Filter>
       </FilterContainer>
