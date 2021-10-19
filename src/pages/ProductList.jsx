@@ -44,9 +44,10 @@ const Option = styled.option`
 const ProductList = () => {
 
   const location = useLocation();
+  const [category, setCategory] = useState(location.pathname.split("/")[2]);
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-  const [category, setCategory] = useState(location.pathname.split("/")[2]);
+
 
 
   const handleFilters = (e) => {
