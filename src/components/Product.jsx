@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
-  width: 100%;
-  height: 100%;
+  width: 400px;
+  height: 500px;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,34 +24,44 @@ const Info = styled.div`
 
 const Container = styled.div`
   flex: 1;
+  flex-direction: column;
   margin: 5px;
-  max-width: 600px;
-  min-width: 400px;
-  height: 500px;
+  //max-width: 400px;
+  //min-width: 400px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5fbfd;
+  //align-items: center;
+  //justify-content: center;
+  background-color: white;
   position: relative;
   &:hover ${Info} {
     opacity: 1;
   }
 `;
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
-
 const Image = styled.img`
-  height: 100%;
+  height: 500px;
   width: 100%;
+  
+  display: block;
+  min-width:400px;
+  min-height:500px;
+  max-width:350px;
+  max-height:500px;
+  width: auto;
+  height: auto;
   object-fit: cover;
   z-index: 2;
 `;
+
+const Details = styled.div`
+`;
+
+const Title = styled.h2`
+`;
+
+const Price = styled.h3`
+`;
+
 
 const Icon = styled.div`
   width: 40px;
@@ -69,11 +79,17 @@ const Icon = styled.div`
   }
 `;
 
+
+
+
 const Product = ({ item }) => {
   return (
     <Container>
-      <Circle />
       <Image src={item.img} />
+      <Details>
+        <Title>{item.title}</Title>
+        <Price>${item.price}</Price>        
+      </Details>
       <Info>
         <Icon>
           <ShoppingCartOutlined />
