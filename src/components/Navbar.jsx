@@ -1,12 +1,17 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import styled from "styled-components";
-import { mobile } from "../responsive"
-import { Link } from "react-router-dom"
+import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 60px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+  z-index: 3;
+  background-color: #ffffff;
   ${mobile({ height: "50px" })}
 `;
 
@@ -21,7 +26,7 @@ const Wrapper = styled.div`
 const Left = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;  
+  align-items: center;
 `;
 
 const Language = styled.span`
@@ -55,7 +60,7 @@ const Logo = styled.h1`
   ${mobile({ fontSize: "24px" })}
 `;
 
-const StyledLink  = styled(Link)`
+const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
@@ -75,40 +80,41 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
-  const cart = useSelector(state => state.cart);
+  const cartQuantity = useSelector((state) => state.cart.quantity);
 
-  console.log(cart)
 
   return (
-      <Container>
-        <Wrapper>
-          <Left>
-            <Language> EN </Language>
-            <SearchContainer>
-              <Input />
-              <Search style={{color:"gray", fontSize:16}}/>
-            </SearchContainer>
-          </Left>
-          <Center>
-            <StyledLink to="/">
-              <Logo>BORN.</Logo>
-            </StyledLink>
-          </Center>
-          <Right>
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language> EN </Language>
+          <SearchContainer>
+            <Input />
+            <Search style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
+        <Center>
+          <StyledLink to="/">
+            <Logo>BORN.</Logo>
+          </StyledLink>
+        </Center>
+        <Right>
           <StyledLink to="/register">
             <MenuItem>REGISTREREN</MenuItem>
           </StyledLink>
           <StyledLink to="/login">
             <MenuItem>LOGIN</MenuItem>
           </StyledLink>
+          <StyledLink to="/cart">
             <MenuItem>
-              <Badge badgeContent={cart.quantity} color="primary">
+              <Badge badgeContent={cartQuantity} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
             </MenuItem>
-          </Right>
-        </Wrapper>
-      </Container>
+          </StyledLink>
+        </Right>
+      </Wrapper>
+    </Container>
   );
 };
 

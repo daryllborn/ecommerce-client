@@ -150,7 +150,7 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    dispatch(addProduct(product))
+    dispatch(addProduct({...product, quantity, color, size}))
   }
 
 
