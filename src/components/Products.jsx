@@ -5,10 +5,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Container = styled.div`
-  padding: 20px;
-  display: flex;
+  justify-self: center;
+  padding: 30px;
+  //margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  //grid-gap: 20px;
+  /*display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between;*/
 `;
 
 const Products = ({ filter, sort, category }) => {
