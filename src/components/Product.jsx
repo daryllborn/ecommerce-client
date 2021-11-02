@@ -5,8 +5,9 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/cartRedux';
+
 
 
 const Info = styled.div`
