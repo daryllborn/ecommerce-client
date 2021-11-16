@@ -195,8 +195,7 @@ const Cart = () => {
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+          </TopTexts>          
         </Top>
         <Bottom>
           <Info>
@@ -255,7 +254,7 @@ const Cart = () => {
               billingAddress
               shippingAddress
               description={`
-              Dummy CC: 4242 4242 4242 4242 / 111 
+              Thank you for shopping with BORN
               Your total is $${cart.total}`}
               amount={cart.total * 100}
               token={onToken}
