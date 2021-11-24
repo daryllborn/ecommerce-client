@@ -10,7 +10,7 @@ const Container = styled.div`
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-  z-index: 3;
+  z-index: 10;
   background-color: #ffffff;
   ${mobile({ height: "50px" })}
 `;
