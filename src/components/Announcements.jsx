@@ -14,7 +14,7 @@ const Container = styled.div`
 const Announcements = () => {
     return (
         <Container>
-            Demand Power Through Style
+            Power Through Style
         </Container>
     )
 }

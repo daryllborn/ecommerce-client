@@ -3,6 +3,12 @@ import styled from "styled-components";
 import { useState } from "react";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -78,7 +84,6 @@ const InfoContainer = styled.div`
   animation: 1s ease-out 0s 1 slideInFromRight;
 `;
 
-
 const Title = styled.h1`
   font-size: 70px;
 `;
@@ -122,7 +127,9 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>KIJK HIER</Button>
+              <StyledLink to="/products/casual">
+                <Button>Check It Out</Button>
+              </StyledLink>
             </InfoContainer>
           </Slide>
         ))}

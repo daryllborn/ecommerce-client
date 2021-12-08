@@ -4,17 +4,23 @@ import Product from "./Product";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { publicRequest } from "../requestMethods";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   justify-self: center;
   padding: 30px;
   //margin-top: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  //grid-gap: 20px;
-  /*display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;*/
+  grid-template-columns: 1fr;
+  @media (min-width: 300px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const Products = ({ filter, sort, category }) => {
@@ -25,9 +31,7 @@ const Products = ({ filter, sort, category }) => {
     const getProducts = async () => {
       try {
         const res = await publicRequest.get(
-          category
-            ? `/products?category=${category}`
-            : "/products"
+          category ? `/products?category=${category}` : "/products"
         );
         setProducts(res.data);
       } catch (err) {}

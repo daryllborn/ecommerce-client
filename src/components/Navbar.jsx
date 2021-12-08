@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 60px;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   z-index: 10;
   background-color: #ffffff;
   ${mobile({ height: "50px" })}
@@ -82,7 +82,6 @@ const MenuItem = styled.div`
 const Navbar = () => {
   const cartQuantity = useSelector((state) => state.cart.quantity);
 
-
   return (
     <Container>
       <Wrapper>
@@ -99,12 +98,12 @@ const Navbar = () => {
           </StyledLink>
         </Center>
         <Right>
-          <StyledLink to="/register">
-            <MenuItem>REGISTREREN</MenuItem>
+          {/*<StyledLink to="/register">
+            <MenuItem>REGISTER</MenuItem>
           </StyledLink>
           <StyledLink to="/login">
             <MenuItem>LOGIN</MenuItem>
-          </StyledLink>
+          </StyledLink>*/}
           <StyledLink to="/cart">
             <MenuItem>
               <Badge badgeContent={cartQuantity} color="primary">

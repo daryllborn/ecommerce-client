@@ -151,10 +151,10 @@ import {
           <ContactItem>
             <MailOutline style={{marginRight:"10px"}} /> contact@born.dev
           </ContactItem>
-          <Ideal src="assets/ideal-logo-1024.png" />
-          <Payment src="assets/payment-methods.png" />
+          <Ideal src="/assets/ideal-logo-1024.png" />
+          <Payment src="/assets/payment-methods.png" />
         </Right>
-        <Office src="assets/office.png" />
+        <Office src="/assets/office.png" />
       </Container>
     );
   };

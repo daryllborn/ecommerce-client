@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/cartRedux';
+import { mobile } from "../responsive";
 
 
 
@@ -40,6 +41,7 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
+  ${mobile({ width: "50px" })}
 `;
 
 const Image = styled.img`
